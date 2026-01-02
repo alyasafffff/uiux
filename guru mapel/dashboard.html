@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Simulasi Layar HP */
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-blue-600 text-white p-6 rounded-b-3xl shadow-lg z-10">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <p class="text-blue-100 text-sm">Selamat Pagi,</p>
+                    <h1 class="text-2xl font-bold">Pak Budi Santoso</h1>
+                    <span class="text-xs bg-blue-500 px-2 py-1 rounded-full mt-1 inline-block">NIP. 19820312 200501</span>
+                </div>
+                <div class="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center border-2 border-white">
+                    <i class="fa-solid fa-user text-xl"></i>
+                </div>
+            </div>
+            
+            <div class="flex justify-between mt-4">
+                <div class="text-center bg-white/10 rounded-lg p-2 w-1/3 mx-1">
+                    <p class="text-xs text-blue-100">Total Jam</p>
+                    <p class="font-bold text-lg">6 Jam</p>
+                </div>
+                <div class="text-center bg-white/10 rounded-lg p-2 w-1/3 mx-1">
+                    <p class="text-xs text-blue-100">Kelas</p>
+                    <p class="font-bold text-lg">3</p>
+                </div>
+                <div class="text-center bg-white/10 rounded-lg p-2 w-1/3 mx-1">
+                    <p class="text-xs text-blue-100">Status</p>
+                    <p class="font-bold text-lg text-green-300">Aktif</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 pb-24 hide-scrollbar">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-gray-800 font-bold text-lg">Jadwal Hari Ini</h2>
+                <span class="text-gray-500 text-sm">Senin, 24 Okt</span>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 relative opacity-70">
+                <div class="absolute top-4 right-4">
+                    <span class="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded">SELESAI</span>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-gray-200 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                        <p class="font-bold text-gray-600">07:00</p>
+                        <p class="text-xs text-gray-500">08:30</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 text-lg">Matematika</h3>
+                        <p class="text-gray-600 text-sm"><i class="fa-solid fa-users mr-1"></i> Kelas X-RPL 1</p>
+                        <p class="text-gray-500 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i> Lab Komputer 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-l-4 border-blue-600 rounded-xl p-4 mb-4 shadow-md relative transform scale-105">
+                <div class="absolute top-4 right-4">
+                    <div class="flex items-center gap-1">
+                        <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        <span class="text-green-600 text-xs font-bold ml-1">BERLANGSUNG</span>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-50 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                        <p class="font-bold text-blue-600">08:45</p>
+                        <p class="text-xs text-gray-500">10:15</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 text-lg">Matematika</h3>
+                        <p class="text-gray-600 text-sm"><i class="fa-solid fa-users mr-1"></i> Kelas XI-TKJ 2</p>
+                        <p class="text-gray-500 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i> Ruang Teori 4</p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-gray-100 flex gap-2">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-lg font-semibold text-sm shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-qrcode"></i> MASUK KELAS
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-xl p-4 mb-4 relative">
+                <div class="absolute top-4 right-4">
+                    <span class="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-1 rounded">AKAN DATANG</span>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-50 p-3 rounded-lg mr-4 text-center min-w-[60px]">
+                        <p class="font-bold text-gray-800">10:30</p>
+                        <p class="text-xs text-gray-500">12:00</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 text-lg">Matematika</h3>
+                        <p class="text-gray-600 text-sm"><i class="fa-solid fa-users mr-1"></i> Kelas XII-DKV</p>
+                        <p class="text-gray-500 text-xs mt-1"><i class="fa-solid fa-location-dot mr-1"></i> Studio Gambar</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="absolute bottom-24 right-5 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-xl flex items-center justify-center w-14 h-14 z-20">
+            <i class="fa-solid fa-file-signature text-xl"></i>
+        </button>
+        <div class="absolute bottom-24 right-20 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity">
+            Ajukan Izin
+        </div>
+
+        <div class="bg-white border-t border-gray-200 h-16 flex justify-around items-center absolute bottom-0 w-full z-30">
+            <div class="flex flex-col items-center text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-house text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Beranda</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i>
+                <span class="text-[10px]">Riwayat</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-user-gear text-xl mb-1"></i>
+                <span class="text-[10px]">Profil</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

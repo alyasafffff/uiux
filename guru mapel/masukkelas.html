@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBM Berlangsung - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* Animasi Scanner */
+        .scan-line {
+            width: 100%; height: 2px; background: #3b82f6;
+            position: absolute; top: 0;
+            animation: scan 2s infinite linear;
+            box-shadow: 0 0 4px #3b82f6;
+        }
+        @keyframes scan {
+            0% { top: 0; } 50% { top: 100%; } 100% { top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-blue-600 text-white p-4 pt-8 shadow-md z-20">
+            <div class="flex items-center gap-3">
+                <button onclick="history.back()" class="hover:bg-blue-500 p-2 rounded-full"><i class="fa-solid fa-arrow-left"></i></button>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Matematika</h1>
+                    <p class="text-xs text-blue-100"><i class="fa-solid fa-users mr-1"></i> X-RPL 1 &bull; 08:45 - 10:15</p>
+                </div>
+                <div class="ml-auto bg-green-500 text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                    LIVE
+                </div>
+            </div>
+        </div>
+
+        <div class="flex border-b border-gray-200 bg-white sticky top-0 z-10">
+            <button onclick="switchTab('presensi')" id="tab-presensi" class="flex-1 py-3 text-sm font-bold text-blue-600 border-b-2 border-blue-600 focus:outline-none">
+                <i class="fa-solid fa-user-check mr-1"></i> Presensi (28/30)
+            </button>
+            <button onclick="switchTab('jurnal')" id="tab-jurnal" class="flex-1 py-3 text-sm font-medium text-gray-500 focus:outline-none hover:text-blue-500">
+                <i class="fa-solid fa-book-open mr-1"></i> Jurnal Kelas
+            </button>
+        </div>
+
+        <div id="content-presensi" class="flex-1 overflow-y-auto p-4 pb-24 hide-scrollbar relative">
+            
+            <div class="grid grid-cols-4 gap-2 mb-4">
+                <div class="bg-green-50 p-2 rounded text-center border border-green-100">
+                    <span class="block text-xs text-green-600">Hadir</span>
+                    <span class="font-bold text-green-700">28</span>
+                </div>
+                <div class="bg-red-50 p-2 rounded text-center border border-red-100">
+                    <span class="block text-xs text-red-600">Alpha</span>
+                    <span class="font-bold text-red-700">1</span>
+                </div>
+                <div class="bg-yellow-50 p-2 rounded text-center border border-yellow-100">
+                    <span class="block text-xs text-yellow-600">Sakit</span>
+                    <span class="font-bold text-yellow-700">1</span>
+                </div>
+                <div class="bg-blue-50 p-2 rounded text-center border border-blue-100">
+                    <span class="block text-xs text-blue-600">Izin</span>
+                    <span class="font-bold text-blue-700">0</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <div class="flex items-center justify-between bg-white p-3 rounded-lg border-l-4 border-green-500 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">AD</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Ahmad Dani</p>
+                            <p class="text-[10px] text-gray-500">Scan: 08:50 WIB</p>
+                        </div>
+                    </div>
+                    <span class="text-green-600"><i class="fa-solid fa-circle-check text-xl"></i></span>
+                </div>
+
+                <div class="flex items-center justify-between bg-white p-3 rounded-lg border-l-4 border-red-500 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">BS</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Budi Santoso</p>
+                            <p class="text-[10px] text-red-500 font-bold">Belum Scan</p>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-blue-600 border border-gray-200 px-2 py-1 rounded text-xs">
+                        Ubah <i class="fa-solid fa-pen"></i>
+                    </button>
+                </div>
+
+                 <div class="flex items-center justify-between bg-white p-3 rounded-lg border-l-4 border-yellow-500 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">CA</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Citra Ayu</p>
+                            <p class="text-[10px] text-yellow-600 font-bold">Sakit (Manual)</p>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-blue-600 border border-gray-200 px-2 py-1 rounded text-xs">
+                        Ubah <i class="fa-solid fa-pen"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="toggleCamera()" class="fixed bottom-6 right-[calc(50%-180px)] mobile-fix bg-blue-600 hover:bg-blue-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center z-30 transition transform hover:scale-110">
+                <i class="fa-solid fa-qrcode text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="content-jurnal" class="hidden flex-1 overflow-y-auto p-5 pb-24 hide-scrollbar">
+            <div class="bg-yellow-50 border border-yellow-200 p-3 rounded-lg mb-6 flex items-start gap-2">
+                <i class="fa-solid fa-circle-info text-yellow-600 mt-1"></i>
+                <p class="text-xs text-yellow-800">Harap isi jurnal.</p>
+            </div>
+
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Materi Ajar</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none h-24" placeholder="Contoh: Logaritma Dasar dan Sifat-sifatnya..."></textarea>
+                </div>
+
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Catatan Tambahan (Opsional)</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Ada siswa yang sakit di UKS...">
+                </div>
+
+                <button type="button" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg shadow-lg mt-4 flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-check-double"></i> SIMPAN & AKHIRI KELAS
+                </button>
+            </form>
+        </div>
+
+        <div id="camera-modal" class="hidden absolute inset-0 bg-black z-50 flex flex-col">
+            <div class="flex justify-between items-center p-4 text-white bg-black/50 absolute top-0 w-full z-10">
+                <span>Scan QR Siswa</span>
+                <button onclick="toggleCamera()"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            </div>
+            
+            <div class="flex-1 relative flex items-center justify-center">
+                <div class="w-64 h-64 border-2 border-white rounded-lg relative overflow-hidden">
+                    <div class="scan-line"></div>
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Camera Preview">
+                </div>
+                <p class="absolute bottom-20 text-white text-sm bg-black/50 px-3 py-1 rounded">Arahkan kamera ke Kartu Pelajar</p>
+            </div>
+
+            <div class="h-24 bg-black flex justify-center items-center gap-8">
+                <button class="text-white"><i class="fa-solid fa-bolt"></i></button>
+                <div class="w-16 h-16 rounded-full border-4 border-white flex items-center justify-center">
+                    <div class="w-12 h-12 bg-white rounded-full"></div>
+                </div>
+                <button class="text-white"><i class="fa-solid fa-camera-rotate"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Reset Style
+            document.getElementById('tab-presensi').className = "flex-1 py-3 text-sm font-medium text-gray-500 focus:outline-none hover:text-blue-500";
+            document.getElementById('tab-jurnal').className = "flex-1 py-3 text-sm font-medium text-gray-500 focus:outline-none hover:text-blue-500";
+            document.getElementById('content-presensi').classList.add('hidden');
+            document.getElementById('content-jurnal').classList.add('hidden');
+
+            // Set Active
+            document.getElementById('tab-' + tab).className = "flex-1 py-3 text-sm font-bold text-blue-600 border-b-2 border-blue-600 focus:outline-none";
+            document.getElementById('content-' + tab).classList.remove('hidden');
+        }
+
+        function toggleCamera() {
+            const modal = document.getElementById('camera-modal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+
+    <style>
+        /* Fix positioning for desktop view simulation */
+        @media (min-width: 400px) {
+            .mobile-fix { right: calc(50% - 180px); transform: translateX(-20px); }
+        }
+    </style>
+</body>
+</html>

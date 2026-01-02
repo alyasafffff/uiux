@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bantuan - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* Custom Accordion Style */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+        .rotate-icon { transition: transform 0.3s; }
+        details[open] .rotate-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-blue-600 p-6 pb-10 text-white rounded-b-[2.5rem] shadow-md z-10 relative">
+            <div class="flex items-center gap-3 mb-4">
+                <button onclick="history.back()" class="w-8 h-8 flex items-center justify-center bg-white/20 rounded-full hover:bg-white/30 transition">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="text-lg font-bold">Pusat Bantuan</h1>
+            </div>
+            <h2 class="text-2xl font-bold mb-1">Halo, Pak Guru! 👋</h2>
+            <p class="text-sm text-blue-100">Ada kendala apa hari ini?</p>
+
+            <div class="absolute -bottom-6 left-6 right-6">
+                <div class="relative shadow-lg">
+                    <span class="absolute left-4 top-3.5 text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" id="searchInput" onkeyup="filterFAQ()" class="w-full h-12 pl-12 pr-4 rounded-xl border-none focus:ring-2 focus:ring-blue-400 text-sm text-gray-700" placeholder="Cari masalah (misal: qr, login)...">
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto pt-10 p-5 pb-24 hide-scrollbar">
+            
+            <h3 class="text-sm font-bold text-gray-800 mb-3">Topik Populer (FAQ)</h3>
+            
+            <div class="space-y-3" id="faqContainer">
+                
+                <details class="bg-white border border-gray-200 rounded-xl p-4 group cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-sm text-gray-700">
+                        <span>Kenapa tombol Presensi tidak bisa diklik?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 rotate-icon"></i>
+                    </summary>
+                    <div class="mt-3 text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                        Sistem membatasi akses presensi hanya pada jam pelajaran yang sedang berlangsung sesuai jadwal server. Pastikan Anda membuka aplikasi di jam yang tepat.
+                    </div>
+                </details>
+
+                <details class="bg-white border border-gray-200 rounded-xl p-4 group cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-sm text-gray-700">
+                        <span>Bagaimana jika Kartu Siswa hilang/rusak?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 rotate-icon"></i>
+                    </summary>
+                    <div class="mt-3 text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                        Gunakan fitur <b>"Update Manual"</b> pada halaman presensi kelas. Klik nama siswa tersebut, lalu ubah statusnya menjadi "Hadir". Laporkan kehilangan kartu ke TU untuk dicetak ulang.
+                    </div>
+                </details>
+
+                <details class="bg-white border border-gray-200 rounded-xl p-4 group cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-sm text-gray-700">
+                        <span>Apa itu "Smart Alert"?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 rotate-icon"></i>
+                    </summary>
+                    <div class="mt-3 text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                        Smart Alert adalah alarm otomatis yang berbunyi di HP Guru Piket jika dalam 15 menit awal pelajaran Anda belum mengisi Jurnal atau Presensi. Pastikan mengisi jurnal tepat waktu.
+                    </div>
+                </details>
+
+                <details class="bg-white border border-gray-200 rounded-xl p-4 group cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-sm text-gray-700">
+                        <span>Salah input Jurnal, bagaimana editnya?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 rotate-icon"></i>
+                    </summary>
+                    <div class="mt-3 text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                        Jurnal yang sudah disubmit bersifat final untuk menjaga integritas data. Jika ada kesalahan fatal, silakan hubungi Administrator Sekolah.
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-5 text-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 text-blue-600">
+                    <i class="fa-solid fa-headset text-xl"></i>
+                </div>
+                <h3 class="font-bold text-gray-800 text-sm">Masih butuh bantuan?</h3>
+                <p class="text-xs text-gray-500 mb-4">Tim IT Sekolah siap membantu Anda.</p>
+                <button class="bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-6 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto w-full transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Chat Administrator
+                </button>
+            </div>
+
+            <p class="text-center text-[10px] text-gray-300 mt-6 mb-2">Smart School App v1.0.0</p>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Fitur Pencarian Sederhana
+        function filterFAQ() {
+            var input, filter, container, details, summary, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            container = document.getElementById("faqContainer");
+            details = container.getElementsByTagName("details");
+
+            for (i = 0; i < details.length; i++) {
+                summary = details[i].getElementsByTagName("summary")[0];
+                if (summary) {
+                    txtValue = summary.textContent || summary.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        details[i].style.display = "";
+                    } else {
+                        details[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
+
+</body>
+</html>

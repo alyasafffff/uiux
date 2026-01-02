@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profil - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-white p-4 pt-6 flex items-center gap-3 border-b border-gray-100 sticky top-0 z-20">
+            <button onclick="history.back()" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-full transition">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <h1 class="text-lg font-bold text-gray-800">Edit Data Diri</h1>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 pb-24 hide-scrollbar">
+            
+            <form id="editForm" onsubmit="simpanData(event)">
+                
+                <div class="flex justify-center mb-8">
+                    <div class="relative">
+                        <div class="w-28 h-28 rounded-full border-4 border-gray-100 shadow-md overflow-hidden">
+                            <img id="profile-preview" src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" class="w-full h-full object-cover">
+                        </div>
+                        <label for="upload-photo" class="absolute bottom-0 right-0 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-700 border-2 border-white shadow-sm">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" id="upload-photo" class="hidden" accept="image/*" onchange="previewImage(event)">
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-6 flex gap-3">
+                    <i class="fa-solid fa-lock text-yellow-600 mt-1"></i>
+                    <div>
+                        <p class="text-xs text-yellow-800 font-bold">Data Terkunci</p>
+                        <p class="text-[10px] text-yellow-700">Nama dan NIP dikelola oleh Administrator. Hubungi Tata Usaha jika ada kesalahan.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Nomor Induk Pegawai (NIP)</label>
+                        <input type="text" value="19820312 200501" class="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-lg p-3 text-sm font-bold focus:outline-none cursor-not-allowed" readonly>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Nama Lengkap</label>
+                        <input type="text" value="Pak Budi Santoso, S.Pd." class="w-full bg-gray-100 border border-gray-200 text-gray-500 rounded-lg p-3 text-sm font-bold focus:outline-none cursor-not-allowed" readonly>
+                    </div>
+
+                    <hr class="border-gray-200 my-4">
+
+                    <div>
+                        <label class="block text-xs font-bold text-blue-600 uppercase mb-1">No. WhatsApp / HP</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400"><i class="fa-brands fa-whatsapp"></i></span>
+                            <input type="tel" value="0812-3456-7890" class="w-full border border-gray-300 rounded-lg p-3 pl-10 text-sm text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition" placeholder="Contoh: 0812...">
+                        </div>
+                        <p class="text-[10px] text-gray-400 mt-1">*Penting untuk notifikasi Smart Alert</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-blue-600 uppercase mb-1">Alamat Email</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400"><i class="fa-regular fa-envelope"></i></span>
+                            <input type="email" value="budi.santoso@sekolah.sch.id" class="w-full border border-gray-300 rounded-lg p-3 pl-10 text-sm text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-blue-600 uppercase mb-1">Alamat Domisili</label>
+                        <textarea class="w-full border border-gray-300 rounded-lg p-3 text-sm text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition h-24">Jl. Merpati No. 45, RT 02/RW 05, Kelurahan Jati, Kecamatan Kota.</textarea>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="bg-white border-t border-gray-200 p-4 absolute bottom-0 w-full z-30">
+            <button onclick="document.getElementById('editForm').dispatchEvent(new Event('submit'))" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg flex justify-center items-center gap-2 transition transform active:scale-95">
+                <i class="fa-regular fa-floppy-disk"></i> SIMPAN PERUBAHAN
+            </button>
+        </div>
+
+        <div id="toast" class="hidden absolute top-20 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-4 py-3 rounded-full shadow-xl z-50 flex items-center gap-2 animate-bounce">
+            <i class="fa-solid fa-circle-check text-green-400"></i>
+            <span>Data berhasil diperbarui!</span>
+        </div>
+
+    </div>
+
+    <script>
+        // Simulasi Preview Foto
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('profile-preview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        // Simulasi Simpan Data
+        function simpanData(e) {
+            e.preventDefault();
+            const btn = document.querySelector('button[type="submit"]'); // Selector disesuaikan jika button di luar form
+            
+            // Tampilkan Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            
+            // Hilangkan Toast setelah 2 detik dan kembali
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                history.back(); // Kembali ke halaman profil
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

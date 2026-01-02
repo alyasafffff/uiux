@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen bg-gray-50">
+        
+        <div class="bg-white p-4 pt-6 text-center sticky top-0 z-20">
+            <h1 class="text-xl font-bold text-gray-800">Profil Saya</h1>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 pb-24 hide-scrollbar">
+            
+            <div class="bg-white rounded-2xl p-6 shadow-sm mb-6 flex flex-col items-center text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                
+                <div class="w-24 h-24 rounded-full border-4 border-white shadow-md bg-gray-200 z-10 mb-3 overflow-hidden">
+                    <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" class="w-full h-full object-cover">
+                </div>
+
+                <h2 class="text-lg font-bold text-gray-800">Pak Budi Santoso, S.Pd.</h2>
+                <p class="text-sm text-gray-500 mb-1">Guru Matematika</p>
+                <span class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full">NIP. 19820312 200501</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-bold">Total Mengajar</span>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-800">124 <span class="text-xs font-normal text-gray-400">Jam</span></p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                            <i class="fa-solid fa-umbrella"></i> </div>
+                        <span class="text-xs text-gray-500 font-bold">Total Izin</span>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-800">2 <span class="text-xs font-normal text-gray-400">Kali</span></p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
+                <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 border-b border-gray-100 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-gray-700">Edit Data Diri</p>
+                            <p class="text-[10px] text-gray-400">No. HP, Alamat, Email</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                </button>
+
+                <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 border-b border-gray-100 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-gray-700">Ganti Password</p>
+                            <p class="text-[10px] text-gray-400">Keamanan akun</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                </button>
+
+                <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-gray-700">Bantuan</p>
+                            <p class="text-[10px] text-gray-400">Panduan penggunaan aplikasi</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 text-xs"></i>
+                </button>
+            </div>
+
+            <button onclick="confirm('Apakah Anda yakin ingin keluar?')" class="w-full bg-red-50 text-red-600 font-bold py-3 rounded-xl border border-red-100 hover:bg-red-100 transition flex justify-center items-center gap-2">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar (Logout)
+            </button>
+            <p class="text-center text-[10px] text-gray-400 mt-4">Versi Aplikasi 1.0.0</p>
+
+        </div>
+
+        <div class="bg-white border-t border-gray-200 h-16 flex justify-around items-center absolute bottom-0 w-full z-30">
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer" onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house text-xl mb-1"></i>
+                <span class="text-[10px]">Beranda</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer" onclick="location.href='riwayat.html'">
+                <i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i>
+                <span class="text-[10px]">Riwayat</span>
+            </div>
+            <div class="flex flex-col items-center text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-user-gear text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Profil</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-white p-4 pt-6 border-b border-gray-200 sticky top-0 z-20">
+            <h1 class="text-xl font-bold text-gray-800">Riwayat Mengajar</h1>
+            
+            <div class="flex items-center justify-between mt-4 bg-gray-100 p-1 rounded-lg">
+                <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-white rounded-md shadow-sm transition"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="text-sm font-bold text-gray-700"><i class="fa-regular fa-calendar mr-2"></i> Oktober 2025</span>
+                <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-white rounded-md shadow-sm transition"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="flex gap-3 mt-4">
+                <div class="flex-1 bg-blue-50 border border-blue-100 rounded-lg p-2 flex items-center gap-3">
+                    <div class="bg-blue-200 w-8 h-8 rounded-full flex items-center justify-center text-blue-700"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <p class="text-[10px] text-gray-500">Total Hadir</p>
+                        <p class="text-sm font-bold text-gray-800">24 Sesi</p>
+                    </div>
+                </div>
+                <div class="flex-1 bg-orange-50 border border-orange-100 rounded-lg p-2 flex items-center gap-3">
+                    <div class="bg-orange-200 w-8 h-8 rounded-full flex items-center justify-center text-orange-700"><i class="fa-solid fa-file-signature"></i></div>
+                    <div>
+                        <p class="text-[10px] text-gray-500">Izin</p>
+                        <p class="text-sm font-bold text-gray-800">1 Sesi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 pb-24 hide-scrollbar space-y-6">
+
+            <div>
+                <h3 class="text-xs font-bold text-gray-400 uppercase mb-3 ml-1">Hari Ini, 24 Okt</h3>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-3 shadow-sm mb-3 flex gap-3 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500"></div> <div class="flex flex-col items-center justify-center min-w-[50px] border-r border-gray-100 pr-3">
+                        <span class="text-xs text-gray-500">07:00</span>
+                        <span class="text-xs font-bold text-gray-800">08:30</span>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-gray-800 text-sm">Matematika</h4>
+                            <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Selesai</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">X-RPL 1 &bull; Lab Komputer</p>
+                        
+                        <div class="flex gap-2">
+                            <span class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded text-gray-600">H: 28</span>
+                            <span class="text-[10px] bg-red-50 px-1.5 py-0.5 rounded text-red-600">A: 1</span>
+                            <span class="text-[10px] bg-yellow-50 px-1.5 py-0.5 rounded text-yellow-600">S: 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-3 shadow-sm mb-3 flex gap-3 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-500"></div> 
+                    
+                    <div class="flex flex-col items-center justify-center min-w-[50px] border-r border-gray-100 pr-3">
+                        <span class="text-xs text-gray-500">10:30</span>
+                        <span class="text-xs font-bold text-gray-800">12:00</span>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-gray-800 text-sm">Matematika</h4>
+                            <span class="bg-orange-100 text-orange-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Izin</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">XII-DKV</p>
+                        <p class="text-[10px] text-orange-600 italic"><i class="fa-solid fa-circle-info mr-1"></i> Digantikan Guru Piket</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xs font-bold text-gray-400 uppercase mb-3 ml-1">Kemarin, 23 Okt</h3>
+
+                <div class="bg-red-50 border border-red-200 rounded-xl p-3 shadow-sm mb-3 flex gap-3 relative opacity-80">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div> 
+                    
+                    <div class="flex flex-col items-center justify-center min-w-[50px] border-r border-red-100 pr-3">
+                        <span class="text-xs text-red-500">08:45</span>
+                        <span class="text-xs font-bold text-red-700">10:15</span>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-gray-800 text-sm">Matematika</h4>
+                            <span class="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-200">
+                                <i class="fa-solid fa-lock mr-1"></i>Alpha
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">XI-TKJ 2</p>
+                        
+                        <div class="bg-white p-2 rounded border border-red-100">
+                            <p class="text-[10px] text-red-600 font-bold mb-1">
+                                <i class="fa-solid fa-triangle-exclamation mr-1"></i> Kelas Kosong
+                            </p>
+                            <p class="text-[10px] text-gray-500">
+                                Ditangani oleh: <span class="font-bold">Pak Budi (Piket)</span><br>
+                                <i>"Siswa diberi tugas LKS Hal 40"</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-white border-t border-gray-200 h-16 flex justify-around items-center absolute bottom-0 w-full z-30">
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer" onclick="location.href='dashboard.html'">
+                <i class="fa-solid fa-house text-xl mb-1"></i>
+                <span class="text-[10px]">Beranda</span>
+            </div>
+            <div class="flex flex-col items-center text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Riwayat</span>
+            </div>
+            <div class="flex flex-col items-center text-gray-400 hover:text-blue-600 cursor-pointer">
+                <i class="fa-solid fa-user-gear text-xl mb-1"></i>
+                <span class="text-[10px]">Profil</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
