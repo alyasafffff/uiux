@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Pengguna - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }</style>
+</head>
+<body class="text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">
+            <div class="mb-6 font-bold text-xl">Smart School</div>
+            <div class="space-y-2">
+                <a href="web_dashboard.html" class="block text-slate-400 py-2">Dashboard</a>
+                <a href="web_data_user.html" class="block text-blue-400 bg-slate-800 px-3 py-2 rounded">Data User</a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10">
+                <div class="flex items-center gap-4">
+                    <button onclick="history.back()" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <h2 class="text-xl font-bold text-slate-800">Tambah Pengguna Baru</h2>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto bg-slate-50 p-8">
+                
+                <form class="max-w-5xl mx-auto" onsubmit="alert('Data Disimpan!'); return false;">
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        
+                        <div class="lg:col-span-1">
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center sticky top-6">
+                                <p class="text-sm font-bold text-slate-700 mb-4">Foto Profil</p>
+                                
+                                <div class="relative w-40 h-40 mx-auto mb-4 group">
+                                    <img id="preview-foto" src="https://ui-avatars.com/api/?name=User+Baru&background=e2e8f0&color=94a3b8" class="w-full h-full rounded-full object-cover border-4 border-slate-100 shadow-sm">
+                                    
+                                    <label for="upload-foto" class="absolute bottom-1 right-1 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-700 border-2 border-white shadow-md transition transform hover:scale-110">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </label>
+                                    <input type="file" id="upload-foto" class="hidden" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                                
+                                <p class="text-xs text-slate-400 mt-2">
+                                    Format: JPG, PNG (Max 2MB).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-2 space-y-6">
+                            
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                                <h3 class="text-sm font-bold text-blue-600 uppercase mb-4 border-b border-slate-100 pb-2">
+                                    <i class="fa-solid fa-shield-halved mr-2"></i> Pengaturan Akun
+                                </h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1">Role / Jabatan <span class="text-red-500">*</span></label>
+                                        <select class="w-full border border-slate-300 rounded-lg p-2.5 text-sm font-semibold focus:ring-2 focus:ring-blue-500 bg-white">
+                                            <option>Guru Mata Pelajaran</option>
+                                            <option>Kepala Sekolah</option>
+                                            <option>Tata Usaha</option>
+                                            <option>Admin IT</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1">Status Akun</label>
+                                        <select class="w-full border border-slate-300 rounded-lg p-2.5 text-sm bg-white">
+                                            <option value="active">Aktif</option>
+                                            <option value="inactive">Non-Aktif</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Nomor Induk Pegawai (NIP) <span class="text-red-500">*</span></label>
+                                        <input type="text" placeholder="198xxxxx..." class="w-full border border-slate-300 rounded-lg p-2.5 text-sm font-mono focus:ring-2 focus:ring-blue-500">
+                                        <p class="text-[10px] text-slate-400 mt-1">Digunakan sebagai Username Login.</p>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Password Default <span class="text-red-500">*</span></label>
+                                        <input type="text" value="12345678" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm bg-slate-50 font-mono">
+                                        <p class="text-[10px] text-slate-400 mt-1">User dapat mengganti password di aplikasi mobile.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                                <h3 class="text-sm font-bold text-blue-600 uppercase mb-4 border-b border-slate-100 pb-2">
+                                    <i class="fa-solid fa-user mr-2"></i> Data Diri Pengguna
+                                </h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Nama Lengkap <span class="text-red-500">*</span></label>
+                                        <input type="text" placeholder="Contoh: Budi Santoso, S.Pd." class="w-full border border-slate-300 rounded-lg p-2.5 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-blue-500">
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">No. WhatsApp / HP <span class="text-red-500">*</span></label>
+                                            <div class="relative">
+                                                <span class="absolute left-3 top-2.5 text-green-600"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <input type="tel" placeholder="0812..." class="w-full border border-slate-300 rounded-lg p-2.5 pl-9 text-sm focus:ring-2 focus:ring-blue-500">
+                                            </div>
+                                            <p class="text-[10px] text-slate-400 mt-1">*Penting untuk notifikasi Smart Alert</p>
+                                        </div>
+
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Alamat Email</label>
+                                            <div class="relative">
+                                                <span class="absolute left-3 top-2.5 text-slate-400"><i class="fa-regular fa-envelope"></i></span>
+                                                <input type="email" placeholder="nama@sekolah.sch.id" class="w-full border border-slate-300 rounded-lg p-2.5 pl-9 text-sm focus:ring-2 focus:ring-blue-500">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Alamat Domisili</label>
+                                        <textarea class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 h-24" placeholder="Masukkan alamat lengkap..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-end gap-4 pt-2">
+                                <button type="button" onclick="history.back()" class="px-6 py-2.5 rounded-lg border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition">
+                                    Batal
+                                </button>
+                                <button type="submit" class="px-6 py-2.5 rounded-lg bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 shadow-lg flex items-center gap-2 transition transform active:scale-95">
+                                    <i class="fa-regular fa-floppy-disk"></i> SIMPAN DATA
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Preview Foto
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-foto').src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</body>
+</html>

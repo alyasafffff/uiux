@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajukan Izin - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; min-height: 100vh; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen">
+        
+        <div class="bg-blue-600 text-white p-4 pt-6 shadow-md sticky top-0 z-20 flex items-center gap-3">
+            <button onclick="history.back()" class="hover:bg-blue-500 p-2 rounded-full transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <h1 class="text-lg font-bold">Formulir Izin</h1>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 pb-24 hide-scrollbar">
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-5 flex gap-3">
+                <i class="fa-solid fa-circle-info text-blue-600 mt-1"></i>
+                <div class="text-xs text-blue-800">
+                    <p class="font-bold mb-1">Aturan Pengajuan:</p>
+                    <ul class="list-disc pl-3 space-y-1">
+                        <li>Pengajuan < 60 menit sebelum jadwal dianggap <b>Terlambat</b>.</li>
+                        <li>Wajib mengisi <b>Materi Ajar</b> untuk disampaikan oleh Guru Piket.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <form id="izinForm" onsubmit="submitIzin(event)" class="space-y-4">
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jenis Halangan <span class="text-red-500">*</span></label>
+                    <select required class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <option value="">Pilih Alasan...</option>
+                        <option value="sakit">Sakit</option>
+                        <option value="izin">Izin Kepentingan Pribadi</option>
+                        <option value="dinas">Dinas Luar</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Mulai Jam <span class="text-red-500">*</span></label>
+                        <input type="time" required class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Sampai Jam <span class="text-red-500">*</span></label>
+                        <input type="time" required class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Kelas Terdampak <span class="text-red-500">*</span></label>
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm text-gray-600 space-y-2">
+                        <label class="flex items-center gap-3 cursor-pointer p-2 hover:bg-white rounded border border-transparent hover:border-gray-200 transition">
+                            <input type="checkbox" checked class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                            <div>
+                                <span class="font-bold text-gray-800 block">X-RPL 1</span>
+                                <span class="text-xs text-gray-500">07:00 - 08:30</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer p-2 hover:bg-white rounded border border-transparent hover:border-gray-200 transition">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                            <div>
+                                <span class="font-bold text-gray-800 block">XI-TKJ 2</span>
+                                <span class="text-xs text-gray-500">08:45 - 10:15</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Materi Ajar / Tugas <span class="text-red-500">*</span></label>
+                    <textarea required class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none h-32 transition" placeholder="Tuliskan instruksi tugas untuk siswa (Contoh: Kerjakan LKS Hal. 40 Bagian A)..."></textarea>
+                    <p class="text-[10px] text-gray-400 mt-1 text-right">Pesan ini akan muncul di aplikasi Guru Piket</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Keterangan Tambahan (Opsional)</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition" placeholder="Contoh: Saya sudah titip buku di meja piket...">
+                </div>
+
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl shadow-lg mt-6 flex justify-center items-center gap-2 transition transform active:scale-95">
+                    <i class="fa-solid fa-paper-plane"></i> KIRIM PENGAJUAN
+                </button>
+
+            </form>
+        </div>
+
+        <div id="toast" class="hidden absolute top-20 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-4 py-3 rounded-full shadow-xl z-50 flex items-center gap-2 animate-bounce">
+            <i class="fa-solid fa-circle-check text-green-400"></i>
+            <span>Izin berhasil dikirim ke Guru Piket!</span>
+        </div>
+
+    </div>
+
+    <script>
+        function submitIzin(e) {
+            e.preventDefault();
+            
+            // Validasi Checklist (Minimal 1 harus dipilih)
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+            
+            if(!checkedOne) {
+                alert("Harap pilih minimal satu kelas yang terdampak.");
+                return;
+            }
+
+            // Tampilkan Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                window.location.href = 'riwayat.html'; 
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

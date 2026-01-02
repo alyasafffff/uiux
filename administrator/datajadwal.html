@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Jadwal Pelajaran - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }</style>
+</head>
+<body class="text-slate-800">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">Sidebar...</aside>
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10">
+                <h2 class="text-xl font-bold text-slate-800">Jadwal Pelajaran</h2>
+                <div class="flex gap-3">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-file-excel"></i> Import Excel
+                    </button>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Manual
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto bg-slate-50 p-8">
+                
+                <div class="flex gap-4 mb-6">
+                    <button class="flex-1 bg-white border border-blue-500 text-blue-600 py-2 rounded-lg font-bold shadow-sm">Senin</button>
+                    <button class="flex-1 bg-white border border-slate-200 text-slate-500 py-2 rounded-lg hover:bg-slate-50">Selasa</button>
+                    <button class="flex-1 bg-white border border-slate-200 text-slate-500 py-2 rounded-lg hover:bg-slate-50">Rabu</button>
+                    <button class="flex-1 bg-white border border-slate-200 text-slate-500 py-2 rounded-lg hover:bg-slate-50">Kamis</button>
+                    <button class="flex-1 bg-white border border-slate-200 text-slate-500 py-2 rounded-lg hover:bg-slate-50">Jumat</button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h3 class="font-bold text-slate-700">Jadwal Hari Senin</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-slate-500">Filter Kelas:</span>
+                            <select class="text-sm border-slate-300 rounded p-1"><option>Semua Kelas</option><option>X-RPL 1</option></select>
+                        </div>
+                    </div>
+                    
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-xs uppercase text-slate-500">
+                            <tr>
+                                <th class="px-6 py-3">Jam Ke</th>
+                                <th class="px-6 py-3">Waktu</th>
+                                <th class="px-6 py-3">Kelas</th>
+                                <th class="px-6 py-3">Mata Pelajaran</th>
+                                <th class="px-6 py-3">Guru Pengampu</th>
+                                <th class="px-6 py-3 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4 font-bold">1 - 2</td>
+                                <td class="px-6 py-4">07:00 - 08:30</td>
+                                <td class="px-6 py-4"><span class="bg-gray-100 px-2 py-1 rounded font-bold">X-RPL 1</span></td>
+                                <td class="px-6 py-4">Matematika</td>
+                                <td class="px-6 py-4 font-medium text-blue-600">Pak Budi Santoso</td>
+                                <td class="px-6 py-4 text-center text-slate-400 cursor-pointer hover:text-blue-600"><i class="fa-solid fa-pen"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-bold">1 - 2</td>
+                                <td class="px-6 py-4">07:00 - 08:30</td>
+                                <td class="px-6 py-4"><span class="bg-gray-100 px-2 py-1 rounded font-bold">XI-TKJ 2</span></td>
+                                <td class="px-6 py-4">Bahasa Inggris</td>
+                                <td class="px-6 py-4 font-medium text-blue-600">Bu Ani Wijaya</td>
+                                <td class="px-6 py-4 text-center text-slate-400 cursor-pointer hover:text-blue-600"><i class="fa-solid fa-pen"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

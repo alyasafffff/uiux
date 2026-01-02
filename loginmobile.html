@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f3f4f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .mobile-screen {
+            width: 100%; max-width: 400px; background-color: #ffffff; 
+            min-height: 100vh; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        
+        /* Animasi Background Sederhana */
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px), radial-gradient(#3b82f6 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-screen p-8 relative overflow-hidden">
+        <div class="bg-pattern absolute inset-0 z-0"></div>
+
+        <div class="z-10 w-full">
+            
+            <div class="text-center mb-10">
+                <div class="w-24 h-24 bg-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition duration-300">
+                    <i class="fa-solid fa-graduation-cap text-4xl text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 tracking-tight">Smart School</h1>
+                <p class="text-gray-500 text-sm mt-1">Sistem Monitoring KBM & Presensi</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-5">
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-2 ml-1">NIP / Username</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-3.5 text-gray-400"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="nip" class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-12 pr-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition" placeholder="Masukkan NIP Anda" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-2 ml-1">Password</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-3.5 text-gray-400"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password" class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-12 pr-12 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition" placeholder="Masukkan Password" required>
+                        
+                        <button type="button" onclick="togglePassword()" class="absolute right-4 top-3.5 text-gray-400 hover:text-blue-600 focus:outline-none">
+                            <i id="eye-icon" class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="text-right mt-2">
+                        <a href="#" onclick="alert('Silakan hubungi Admin Sekolah untuk reset password.')" class="text-xs text-blue-600 hover:text-blue-800 font-semibold">Lupa Password?</a>
+                    </div>
+                </div>
+
+                <div id="error-msg" class="hidden bg-red-50 text-red-500 text-xs p-3 rounded-lg flex items-center gap-2 border border-red-100">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>NIP atau Password salah!</span>
+                </div>
+
+                <button type="submit" id="btn-login" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/30 transition transform active:scale-95 flex justify-center items-center gap-2 mt-6">
+                    <span>MASUK SEKARANG</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="absolute bottom-6 w-full text-center left-0 z-10">
+            <p class="text-[10px] text-gray-400">&copy; 2025 Smart School System v1.0</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Fitur Toggle Password
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon = document.getElementById('eye-icon');
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+
+        // Simulasi Login
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('btn-login');
+            const originalContent = btn.innerHTML;
+            const nip = document.getElementById('nip').value;
+            
+            // 1. Loading State
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-xl"></i>';
+            btn.classList.add('opacity-75');
+
+            // 2. Simulasi Request Server (2 detik)
+            setTimeout(() => {
+                // Skenario Login Berhasil (Simple check)
+                if(nip.length > 0) {
+                    // Redirect ke Dashboard Guru
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Reset Button
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('opacity-75');
+                    
+                    // Show Error
+                    document.getElementById('error-msg').classList.remove('hidden');
+                }
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
