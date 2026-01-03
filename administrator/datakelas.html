@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kelas - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }</style>
+</head>
+<body class="text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">
+            <div class="mb-6 font-bold text-xl">Smart School</div>
+            <div class="space-y-2">
+                <a href="web_dashboard.html" class="block text-slate-400 py-2">Dashboard</a>
+                <a href="#" class="block text-blue-400 bg-slate-800 px-3 py-2 rounded">Data Kelas</a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10">
+                <h2 class="text-xl font-bold text-slate-800">Data Kelas & Wali Kelas</h2>
+                <button onclick="document.getElementById('modalKelas').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> Tambah Kelas
+                </button>
+            </header>
+
+            <main class="flex-1 overflow-y-auto bg-slate-50 p-8">
+                
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6 flex gap-3 items-start">
+                    <i class="fa-solid fa-circle-info text-blue-600 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-sm text-blue-800">Pentingnya Data Kelas</h4>
+                        <p class="text-xs text-blue-600">Pastikan setiap kelas memiliki <b>Wali Kelas</b>. Wali Kelas akan mendapatkan akses khusus untuk memantau presensi siswa di kelasnya.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-slate-50 text-slate-500 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="px-6 py-4">Nama Kelas</th>
+                                <th class="px-6 py-4">Tingkat</th>
+                                <th class="px-6 py-4">Jurusan</th>
+                                <th class="px-6 py-4">Wali Kelas</th>
+                                <th class="px-6 py-4 text-center">Jml Siswa</th>
+                                <th class="px-6 py-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4 font-bold text-slate-700">X - RPL 1</td>
+                                <td class="px-6 py-4">Kelas 10</td>
+                                <td class="px-6 py-4">Rekayasa Perangkat Lunak</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-[10px] font-bold">S</div>
+                                        <span class="text-slate-600">Bu Siti Aminah</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center font-bold bg-gray-50">36</td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-slate-400 hover:text-blue-600 mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-slate-400 hover:text-red-500 mx-1"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4 font-bold text-slate-700">XI - TKJ 2</td>
+                                <td class="px-6 py-4">Kelas 11</td>
+                                <td class="px-6 py-4">Teknik Komputer Jaringan</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold">B</div>
+                                        <span class="text-slate-600">Pak Budi Santoso</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center font-bold bg-gray-50">32</td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-slate-400 hover:text-blue-600 mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-slate-400 hover:text-red-500 mx-1"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <div id="modalKelas" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6">
+            <h3 class="text-lg font-bold text-slate-800 mb-4">Tambah Kelas Baru</h3>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Nama Kelas</label>
+                    <input type="text" placeholder="Contoh: XII - DKV 1" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Tingkat</label>
+                        <select class="w-full border border-slate-300 rounded-lg p-2 text-sm bg-white">
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">Jurusan</label>
+                        <select class="w-full border border-slate-300 rounded-lg p-2 text-sm bg-white">
+                            <option>RPL</option>
+                            <option>TKJ</option>
+                            <option>AKL</option>
+                            <option>DKV</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Wali Kelas</label>
+                    <select class="w-full border border-slate-300 rounded-lg p-2 text-sm bg-white">
+                        <option>-- Pilih Guru --</option>
+                        <option>Budi Santoso, S.Pd</option>
+                        <option>Siti Aminah, S.Pd</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-end gap-3 mt-6">
+                    <button type="button" onclick="document.getElementById('modalKelas').classList.add('hidden')" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 text-sm font-bold hover:bg-slate-50">Batal</button>
+                    <button type="button" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-bold hover:bg-blue-700">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
