@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mata Pelajaran - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }</style>
+</head>
+<body class="text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">
+            <div class="mb-6 font-bold text-xl">Smart School</div>
+            <div class="space-y-2">
+                <a href="web_dashboard.html" class="block text-slate-400 py-2 hover:text-white">Dashboard</a>
+                
+                <p class="text-xs font-bold text-slate-500 uppercase mt-4 mb-2">Data Master</p>
+                <a href="web_data_user.html" class="block text-slate-400 py-2 hover:text-white">Data User</a>
+                <a href="web_data_siswa.html" class="block text-slate-400 py-2 hover:text-white">Data Siswa</a>
+                <a href="web_data_guru.html" class="block text-slate-400 py-2 hover:text-white">Data Guru</a>
+                <a href="web_data_kelas.html" class="block text-slate-400 py-2 hover:text-white">Data Kelas</a>
+                
+                <a href="#" class="block text-blue-400 bg-slate-800 px-3 py-2 rounded">Mata Pelajaran</a>
+                
+                <a href="web_jadwal.html" class="block text-slate-400 py-2 hover:text-white">Jadwal Pelajaran</a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10">
+                <h2 class="text-xl font-bold text-slate-800">Data Mata Pelajaran</h2>
+                <button onclick="document.getElementById('modalMapel').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> Tambah Mapel
+                </button>
+            </header>
+
+            <main class="flex-1 overflow-y-auto bg-slate-50 p-8">
+                
+                <div class="bg-yellow-50 border border-yellow-100 rounded-xl p-4 mb-6 flex gap-3 items-start">
+                    <i class="fa-solid fa-triangle-exclamation text-yellow-600 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-sm text-yellow-800">Standarisasi Nama Mapel</h4>
+                        <p class="text-xs text-yellow-700">Pastikan penulisan nama mata pelajaran sesuai dengan format Raport (Dapodik). Data ini akan digunakan di Jadwal, Jurnal, dan Rekap Presensi.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex gap-4">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-slate-400"></i>
+                        <input type="text" placeholder="Cari Kode atau Nama Mapel..." class="w-full pl-10 pr-4 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <select class="border border-slate-300 rounded-lg text-sm px-4 bg-white">
+                        <option>Semua Kategori</option>
+                        <option>Muatan Nasional (A)</option>
+                        <option>Muatan Kewilayahan (B)</option>
+                        <option>Peminatan Kejuruan (C)</option>
+                    </select>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-slate-50 text-slate-500 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="px-6 py-4">Kode Mapel</th>
+                                <th class="px-6 py-4">Nama Mata Pelajaran</th>
+                                <th class="px-6 py-4">Kategori / Kelompok</th>
+                                <th class="px-6 py-4 text-center">Status</th>
+                                <th class="px-6 py-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4 font-mono text-slate-500 font-bold">MAT-A</td>
+                                <td class="px-6 py-4 font-bold text-slate-700">Matematika (Umum)</td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-bold border border-blue-100">Muatan Nasional (A)</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">Aktif</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-slate-400 hover:text-blue-600 mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-slate-400 hover:text-red-500 mx-1"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4 font-mono text-slate-500 font-bold">PJOK-B</td>
+                                <td class="px-6 py-4 font-bold text-slate-700">Pendidikan Jasmani & Kesehatan</td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-bold border border-green-100">Muatan Kewilayahan (B)</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">Aktif</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-slate-400 hover:text-blue-600 mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-slate-400 hover:text-red-500 mx-1"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4 font-mono text-slate-500 font-bold">PROD-RPL</td>
+                                <td class="px-6 py-4 font-bold text-slate-700">Pemrograman Berorientasi Objek</td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-purple-50 text-purple-700 px-2 py-1 rounded text-xs font-bold border border-purple-100">C3. Kompetensi Keahlian</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">Aktif</span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="text-slate-400 hover:text-blue-600 mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-slate-400 hover:text-red-500 mx-1"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <div id="modalMapel" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6">
+            <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-blue-600"></i> Tambah Mata Pelajaran
+            </h3>
+            
+            <form class="space-y-4">
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Kode Mapel <span class="text-red-500">*</span></label>
+                    <input type="text" placeholder="Contoh: MAT-A (Unik)" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm uppercase font-mono focus:ring-2 focus:ring-blue-500">
+                    <p class="text-[10px] text-slate-400 mt-1">Kode digunakan untuk referensi di Jadwal Pelajaran.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Nama Mata Pelajaran <span class="text-red-500">*</span></label>
+                    <input type="text" placeholder="Contoh: Bahasa Indonesia" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Kelompok / Kategori</label>
+                    <select class="w-full border border-slate-300 rounded-lg p-2.5 text-sm bg-white">
+                        <option value="A">Kelompok A (Muatan Nasional)</option>
+                        <option value="B">Kelompok B (Muatan Kewilayahan)</option>
+                        <option value="C1">C1 (Dasar Bidang Keahlian)</option>
+                        <option value="C2">C2 (Dasar Program Keahlian)</option>
+                        <option value="C3">C3 (Kompetensi Keahlian)</option>
+                        <option value="LOKAL">Muatan Lokal</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">Status</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="status" checked class="text-blue-600 focus:ring-blue-500">
+                            <span class="text-sm">Aktif</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="status" class="text-blue-600 focus:ring-blue-500">
+                            <span class="text-sm">Non-Aktif</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-100">
+                    <button type="button" onclick="document.getElementById('modalMapel').classList.add('hidden')" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 text-sm font-bold hover:bg-slate-50">Batal</button>
+                    <button type="button" onclick="alert('Mapel Tersimpan!')" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-bold hover:bg-blue-700">Simpan Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
