@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard BK - Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; } /* Kembali ke Slate-50 */
+        
+        /* Animasi Indikator Live */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .live-dot {
+            animation: blink 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">
+            <div class="mb-6 font-bold text-xl flex items-center gap-2">
+                <i class="fa-solid fa-school-flag text-blue-500 text-2xl mr-2"></i>
+                <span>Smart School</span>
+            </div>
+            
+            <div class="space-y-2">
+                <p class="px-4 text-xs font-bold text-slate-500 uppercase mb-2">Konseling</p>
+                
+                <a href="#" class="flex items-center px-4 py-3 bg-slate-800 text-blue-400 border-r-2 border-blue-500 rounded-r-sm">
+                    <i class="fa-solid fa-grid-2 w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Dashboard</span>
+                </a>
+
+                <a href="bk_monitoring.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded transition">
+                    <i class="fa-solid fa-eye w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Monitoring Kelas</span>
+                </a>
+
+                <a href="bk_laporan.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded transition">
+                    <i class="fa-solid fa-file-contract w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Rekap Absensi</span>
+                </a>
+            </div>
+
+            <div class="absolute bottom-0 left-0 w-64 p-4 border-t border-slate-800 bg-slate-900">
+                <div class="flex items-center gap-3">
+                    <img src="https://ui-avatars.com/api/?name=Guru+BK&background=ef4444&color=fff" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-sm font-bold">Bu Rina, S.Pd</p>
+                        <p class="text-xs text-slate-500">Guru BK</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10 border-b border-slate-200">
+                <div class="flex items-center gap-2 text-slate-500 text-sm font-medium">
+                    <i class="fa-regular fa-calendar"></i> Senin, 27 Oktober 2025
+                </div>
+                <button onclick="location.href='../loginweb.html'" class="text-sm font-bold text-red-600 hover:text-red-800 flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </button>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-8">
+                
+                <h2 class="text-2xl font-bold text-slate-800 mb-6">Ringkasan Kedisiplinan Hari Ini</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-red-500 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Alpha Harian</p>
+                            <h3 class="text-4xl font-bold text-slate-800 mt-2">12 <span class="text-sm font-normal text-slate-400">Siswa</span></h3>
+                            <p class="text-[10px] text-red-500 mt-2 font-medium">
+                                <i class="fa-solid fa-calendar-xmark mr-1"></i> Tidak hadir sekolah seharian
+                            </p>
+                        </div>
+                        <div class="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-user-slash"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-orange-500 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Alpha Per Mapel</p>
+                            <h3 class="text-4xl font-bold text-slate-800 mt-2">5 <span class="text-sm font-normal text-slate-400">Siswa</span></h3>
+                            <p class="text-[10px] text-orange-500 mt-2 font-medium">
+                                <i class="fa-solid fa-clock mr-1"></i> Tidak ada di kelas saat KBM
+                            </p>
+                        </div>
+                        <div class="w-14 h-14 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-clipboard-user"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+    
+    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+        <div>
+            <h3 class="font-bold text-slate-800 text-lg">Live Feed Ketidakhadiran</h3>
+            <p class="text-xs text-slate-500">Laporan real-time status siswa di kelas saat ini.</p>
+        </div>
+        <div class="flex items-center gap-2 bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold border border-red-200">
+            <span class="w-2 h-2 bg-red-600 rounded-full live-dot"></span> LIVE
+        </div>
+    </div>
+
+    <div class="divide-y divide-slate-100">
+        
+        <div class="p-5 hover:bg-slate-50 transition flex items-start gap-4 border-l-4 border-l-orange-500">
+            <div class="flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=Rudi+Hartono&background=ffedd5&color=c2410c" class="w-10 h-10 rounded-full">
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <h4 class="font-bold text-slate-800">Rudi Hartono <span class="font-normal text-slate-500 text-sm ml-1">(X - RPL 1)</span></h4>
+                    <span class="text-xs text-slate-400 font-mono">Baru Saja (10:15)</span>
+                </div>
+                
+                <div class="mt-2">
+                    <span class="font-bold text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded border border-orange-200 uppercase">
+                        <i class="fa-regular fa-clock mr-1"></i> Alpha Di Pelajaran Ini
+                    </span>
+                </div>
+                
+                <p class="text-sm text-slate-600 mt-2">
+                    Terdeteksi tidak ada saat pelajaran <b>Matematika (Jam ke-4)</b> berlangsung.
+                </p>
+                <p class="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-chalkboard-user"></i> Laporan dari: Pak Budi Santoso
+                </p>
+            </div>
+        </div>
+
+        <div class="p-5 hover:bg-slate-50 transition flex items-start gap-4 border-l-4 border-l-orange-500 bg-orange-50/10">
+            <div class="flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=Bagas+Putra&background=ffedd5&color=c2410c" class="w-10 h-10 rounded-full">
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <h4 class="font-bold text-slate-800">Bagas Putra <span class="font-normal text-slate-500 text-sm ml-1">(XI - TKJ 2)</span></h4>
+                    <span class="text-xs text-slate-400 font-mono">30 Menit lalu</span>
+                </div>
+                
+                <div class="mt-2">
+                    <span class="font-bold text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded border border-orange-200 uppercase">
+                        <i class="fa-solid fa-person-walking-arrow-right mr-1"></i> Alpha Mulai Jam ke-3
+                    </span>
+                </div>
+
+                <p class="text-sm text-slate-600 mt-2">
+                    Terakhir terlihat hadir pada Jam ke-2. Menghilang setelah istirahat pertama.
+                </p>
+                <p class="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-chalkboard-user"></i> Laporan dari: Bu Siti Aminah
+                </p>
+            </div>
+        </div>
+
+        <div class="p-5 hover:bg-slate-50 transition flex items-start gap-4 border-l-4 border-l-red-500 bg-red-50/10">
+            <div class="flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=Ahmad+Dani&background=fee2e2&color=991b1b" class="w-10 h-10 rounded-full">
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-start">
+                    <h4 class="font-bold text-slate-800">Ahmad Dani <span class="font-normal text-slate-500 text-sm ml-1">(X - RPL 1)</span></h4>
+                    <span class="text-xs text-slate-400 font-mono">Sejak Pagi (07:00)</span>
+                </div>
+
+                <div class="mt-2">
+                    <span class="font-bold text-xs bg-red-100 text-red-700 px-2 py-1 rounded border border-red-200 uppercase">
+                        <i class="fa-solid fa-calendar-xmark mr-1"></i> Alpha Sejak Jam ke-1
+                    </span>
+                </div>
+
+                <p class="text-sm text-slate-600 mt-2">
+                    Tidak melakukan presensi pagi di Guru Piket. Status otomatis: <b>Alpha Harian</b>.
+                </p>
+                <p class="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-user-shield"></i> Laporan dari: Sistem Piket
+                </p>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="p-3 bg-slate-50 text-center border-t border-slate-100">
+        <a href="bk_monitoring.html" class="text-xs font-bold text-blue-600 hover:text-blue-800 hover:underline">
+            Lihat Monitoring Kelas Lengkap <i class="fa-solid fa-arrow-right ml-1"></i>
+        </a>
+    </div>
+</div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Kelas Full - BK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        /* Agar timeline bisa discroll jika layar kecil */
+        .timeline-cell::-webkit-scrollbar { height: 4px; }
+        .timeline-cell::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-slate-900 text-white hidden md:block p-4">
+            <div class="mb-6 font-bold text-xl flex items-center gap-2">
+                <i class="fa-solid fa-school-flag text-blue-500 text-2xl mr-2"></i>
+                <span>Smart School</span>
+            </div>
+            
+            <div class="space-y-2">
+                <p class="px-4 text-xs font-bold text-slate-500 uppercase mb-2">Konseling</p>
+                <a href="bk_dashboard.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded transition">
+                    <i class="fa-solid fa-grid-2 w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Dashboard</span>
+                </a>
+                <a href="bk_monitoring.html" class="flex items-center px-4 py-3 bg-slate-800 text-blue-400 border-r-2 border-blue-500 rounded-r-sm">
+                    <i class="fa-solid fa-eye w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Monitoring Kelas</span>
+                </a>
+                <a href="bk_laporan.html" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded transition">
+                    <i class="fa-solid fa-file-contract w-6 text-center text-lg"></i> 
+                    <span class="text-sm font-medium ml-2">Rekap Absensi</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 z-10 border-b border-slate-200">
+                <div class="flex items-center gap-4">
+                    <button onclick="location.href='bk_monitoring.html'" class="text-slate-400 hover:text-blue-600">
+                        <i class="fa-solid fa-arrow-left text-xl"></i>
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-500 text-sm font-medium">Kelas:</span>
+                        <select class="bg-slate-50 border border-slate-300 text-slate-800 font-bold text-lg rounded-lg px-3 py-1 cursor-pointer outline-none">
+                            <option value="XRPL1">X - RPL 1</option>
+                            <option value="XITKJ2">XI - TKJ 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                     <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded border border-blue-100">
+                        <i class="fa-solid fa-clock mr-1"></i> Jam Ke-4 (Saat Ini)
+                    </span>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto bg-slate-50 p-6">
+
+                <div class="flex flex-wrap gap-4 mb-4 text-xs bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+                    <span class="font-bold text-slate-500 uppercase mr-2">Keterangan:</span>
+                    <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check text-[8px]"></i></span> Hadir</div>
+                    <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-red-100 border border-red-300 flex items-center justify-center text-red-700 font-bold text-[8px]">A</span> Alpha</div>
+                    <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-orange-100 border border-orange-300 flex items-center justify-center text-orange-700 font-bold text-[8px]">M</span> Mangkir/Bolos</div>
+                    <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-700 font-bold text-[8px]">I</span> Izin/Sakit</div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <table class="w-full text-left text-sm text-slate-600">
+                        <thead class="bg-slate-100 text-xs uppercase text-slate-500 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-3 w-10 text-center">No</th>
+                                <th class="px-4 py-3">Nama Siswa</th>
+                                <th class="px-4 py-3 text-center w-40">Status Jam Ini</th>
+                                <th class="px-4 py-3 w-1/2">Riwayat Hari Ini (Jam 1 - 8)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+
+                            <tr class="hover:bg-orange-50/30 bg-orange-50/10 transition">
+                                <td class="px-4 py-3 text-center font-bold text-orange-600">1</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Rudi+H&background=ffedd5&color=c2410c" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <div class="font-bold text-slate-800">Rudi Hartono</div>
+                                            <div class="text-[10px] text-slate-400">2023101</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-center">
+                                    <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-[10px] font-bold border border-orange-200 block w-full">
+                                        MANGKIR
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <div class="flex gap-1 overflow-x-auto timeline-cell">
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-orange-100 border border-orange-300 flex items-center justify-center text-orange-700 font-bold text-xs" title="Jam 3: Mangkir">M</div>
+                                        <div class="w-8 h-8 rounded bg-orange-100 border-2 border-orange-500 flex items-center justify-center text-orange-700 font-bold text-xs animate-pulse" title="Jam 4: Mangkir (Live)">M</div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-red-50/30 bg-red-50/10 transition">
+                                <td class="px-4 py-3 text-center font-bold text-red-600">2</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Ahmad+D&background=fee2e2&color=991b1b" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <div class="font-bold text-slate-800">Ahmad Dani</div>
+                                            <div class="text-[10px] text-slate-400">2023102</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-[10px] font-bold border border-red-200 block w-full">
+                                        ALPHA
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <div class="flex gap-1 overflow-x-auto timeline-cell">
+                                        <div class="w-8 h-8 rounded bg-red-100 border border-red-300 flex items-center justify-center text-red-700 font-bold text-xs">A</div>
+                                        <div class="w-8 h-8 rounded bg-red-100 border border-red-300 flex items-center justify-center text-red-700 font-bold text-xs">A</div>
+                                        <div class="w-8 h-8 rounded bg-red-100 border border-red-300 flex items-center justify-center text-red-700 font-bold text-xs">A</div>
+                                        <div class="w-8 h-8 rounded bg-red-100 border-2 border-red-500 flex items-center justify-center text-red-700 font-bold text-xs animate-pulse">A</div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-4 py-3 text-center text-slate-400">3</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Citra+A&background=dbeafe&color=1e40af" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <div class="font-bold text-slate-700">Citra Ayu</div>
+                                            <div class="text-[10px] text-slate-400">2023103</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-center">
+                                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-[10px] font-bold border border-blue-200 block w-full">
+                                        SAKIT (UKS)
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <div class="flex gap-1 overflow-x-auto timeline-cell">
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-700 font-bold text-xs">I</div>
+                                        <div class="w-8 h-8 rounded bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-700 font-bold text-xs">S</div>
+                                        <div class="w-8 h-8 rounded bg-blue-100 border-2 border-blue-500 flex items-center justify-center text-blue-700 font-bold text-xs animate-pulse">S</div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-4 py-3 text-center text-slate-400">4</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Bagas+P&background=dcfce7&color=166534" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <div class="font-bold text-slate-700">Bagas Putra</div>
+                                            <div class="text-[10px] text-slate-400">2023104</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-center">
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold border border-green-200 block w-full">
+                                        HADIR
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <div class="flex gap-1 overflow-x-auto timeline-cell">
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-green-100 border border-green-300 flex items-center justify-center text-green-700"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-green-100 border-2 border-green-500 flex items-center justify-center text-green-700 animate-pulse"><i class="fa-solid fa-check"></i></div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                        <div class="w-8 h-8 rounded bg-slate-50 border border-slate-100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
